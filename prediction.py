@@ -4,7 +4,7 @@ import joblib
 import gzip
 
 # Load model (gzip)
-with gzip.open("model.sav", "rb") as f:
+with gzip.open("model.sav.gz", "rb") as f:
     model = joblib.load(f)
 
 # Load scaler
