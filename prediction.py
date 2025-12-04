@@ -3,21 +3,21 @@ import numpy as np
 import joblib
 import gzip
 
-# Load model (gzip)
+# MODEL
 with gzip.open("model.sav.gz", "rb") as f:
     model = joblib.load(f)
 
-# Load scaler
-with gzip.open("scaler.sav", "rb") as f:
-    scaler = joblib.load(f)
+# SCALER (tidak gzip)
+scaler = joblib.load("scaler.sav")
 
-# Load feature order (TOP 10 FEATURES)
+# FEATURES
 with open("features.json", "r") as f:
-    feature_order = json.load(f)
+    selected_features = json.load(f)
 
-# Load threshold custom
+# THRESHOLD
 with open("threshold.txt", "r") as f:
     threshold = float(f.read().strip())
+
 
 
 def predict_diabetes(user_input_dict):
