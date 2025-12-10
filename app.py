@@ -68,9 +68,19 @@ with col2:
         1, 6, 3
     )
 
-    Income = st.slider(
-        "Level pendapatan (1=<10k USD, 2=10–15k, ..., 8=>75k USD per tahun)",
-        1, 8, 4
+    Income = st.selectbox(
+        "Pendapatan Tahunan (1–8)",
+        options=[1,2,3,4,5,6,7,8],
+        format_func=lambda x: {
+            1: "< $10.000",
+            2: "$10.000 – $14.999",
+            3: "$15.000 – $19.999",
+            4: "$20.000 – $24.999",
+            5: "$25.000 – $34.999",
+            6: "$35.000 – $49.999",
+            7: "$50.000 – $74.999",
+            8: "≥ $75.000"
+        }[x],
     )
 
     Smoker = st.selectbox(
